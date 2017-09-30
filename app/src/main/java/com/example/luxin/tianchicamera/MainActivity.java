@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     final static int REQUEST_CODE_IMAGE = 1;
     String picturePath;
     Uri uri;
+    Button btnCamera;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
 
         //实例化控件
-        Button btnCamera = (Button) findViewById(R.id.btn_camera);
+        btnCamera = (Button) findViewById(R.id.btn_camera);
         final EditText etRoad = (EditText) findViewById(R.id.et_road);
         final EditText etNumber = (EditText) findViewById(R.id.et_number);
         final EditText etGuanDuan = (EditText) findViewById(R.id.et_guanduan);
@@ -50,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         final EditText etBeiZhu = (EditText) findViewById(R.id.et_beizhu);
         Button btnSubmit = (Button) findViewById(R.id.btn_submit);
         Button btnSubmitAndAdd = (Button) findViewById(R.id.btn_submitandadd);
-        etRoad.setSelected(false);
 
         etGuanDuan.setOnClickListener(new View.OnClickListener() {
             int count = 0;
@@ -177,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("照片路径", picturePath);
                 }
                 Toast.makeText(this, "拍照成功！！请输入管线信息！！", Toast.LENGTH_SHORT).show();
+
+                btnCamera.setText("已拍摄");
             }
         }
     }
