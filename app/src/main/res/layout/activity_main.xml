@@ -12,12 +12,12 @@
         android:id="@+id/btn_camera"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:textSize="18dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/camera_style"
+        android:text="请拍照"
 
-        android:text="请拍照" />
+        android:textSize="18dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -94,12 +94,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_liuliang" />
-
-            <EditText
-                android:id="@+id/et_picturename"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_picturename" />
 
             <EditText
                 android:id="@+id/et_beizhu"

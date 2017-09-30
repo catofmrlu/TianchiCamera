@@ -98,6 +98,17 @@ public class MainActivity extends AppCompatActivity {
                                 etSource.getText().toString(),
                                 etLiuLiang.getText().toString(),
                                 etBeiZhu.getText().toString());
+
+                        //截取路径字符串，取得图片名称
+                        int location = picturePath.lastIndexOf("/");
+                        String name = picturePath.substring(0, location);
+
+                        //创建修改提交对象
+                        ContentValues values = new ContentValues();
+                        values.put("MediaStore.Images.Media.DATA", name + etNumber.getText().toString() + ".jpg");
+
+                        getContentResolver().update(uri, values, "MediaStore.Images.Media.DATA = " + "'" + picturePath + "'", null);
+
                     }
                 }).start();
 
