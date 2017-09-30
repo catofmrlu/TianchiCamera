@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i("onBackPressed", "sum = " + sum);
         switch (sum) {
             case 1:
-                Toast.makeText(MainActivity.this, "再按一次退出Reer", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "再按一次退出猎德管网信息录入", Toast.LENGTH_SHORT).show();
                 startTime = System.currentTimeMillis();// 第一次时间对应的毫秒数
                 break;
             case 2:
@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
                 if (endTime - startTime < 1500) {
                     finish();
                 } else {
-                    Toast.makeText(MainActivity.this, "再按一次退出Reer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "再按一次退出猎德管网信息录入", Toast.LENGTH_SHORT).show();
                     startTime = System.currentTimeMillis();// 当前时间对应的毫秒数
                     sum = 1;
                 }
