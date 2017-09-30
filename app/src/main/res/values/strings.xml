@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">猎德管网信息录入</string>
+
+    <string name="hint_road">所在道路</string>
+    <string name="hint_number">错接混接编号</string>
+    <string name="hint_guanduan">所在检查井或管段</string>
+    <string name="hint_guanjing">管径</string>
+    <string name="hint_caizhi">材质</string>
+    <string name="hint_hunjietype">错接混接类型</string>
+    <string name="hint_location">位置及坐标</string>
+    <string name="hint_wushuilaiyuan">污水来源</string>
+    <string name="hint_liuliang">流量（m3/s）</string>
+    <string name="hint_picturename">照片名字</string>
+    <string name="hint_beizhu">备注</string>
+
+</resources>
