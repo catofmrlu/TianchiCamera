@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                                 etSource.getText().toString(),
                                 etLiuLiang.getText().toString(),
                                 etBeiZhu.getText().toString());
-                        
+
                         //截取路径字符串，取得图片名称
                         int location = picturePath.lastIndexOf("/");
                         String name = picturePath.substring(0, location);
@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 }).start();
 
                 Toast.makeText(MainActivity.this, "信息提交成功", Toast.LENGTH_SHORT).show();
+
                 // 注意activity的模式必须为默认，即为standard模式
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
