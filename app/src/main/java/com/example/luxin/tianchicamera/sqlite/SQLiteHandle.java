@@ -60,6 +60,26 @@ public class SQLiteHandle {
         return cursor;
     }
 
+    //查询数据表中的所有数据项
+    public boolean queraHasItems(String number) {
+
+        boolean hasItem;
+
+        Cursor cursor = db.query("paishuiguanwang", null, "Number = '" + number + "'", null, null, null, null);
+
+        Log.i("数据表数量", Integer.toString(cursor.getCount()));
+
+        if (cursor.getCount() == 0)
+            hasItem = false;
+        else
+            hasItem = true;
+
+        cursor.close();
+
+        return hasItem;
+
+    }
+
     public void dbClose() {
         db.close();
         Log.i("sqlite", "关闭");

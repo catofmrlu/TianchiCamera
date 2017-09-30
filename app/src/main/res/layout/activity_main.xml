@@ -36,58 +36,89 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/et_road"
-
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_road" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_number"
+                <EditText
+                    android:id="@+id/et_road"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_road" />
+
+                <EditText
+                    android:id="@+id/et_number"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_number" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_number" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_guanduan"
+                <EditText
+                    android:id="@+id/et_guanduan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_guanduan"
+                    android:inputType="number" />
+
+
+                <EditText
+                    android:id="@+id/et_guanjing"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_guanjing"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_guanduan"
-                android:inputType="number" />
+                android:orientation="horizontal">
 
+                <EditText
+                    android:id="@+id/et_caizhi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_caizhi" />
 
-            <EditText
-                android:id="@+id/et_guanjing"
+                <EditText
+                    android:id="@+id/et_mixtype"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_hunjietype" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_guanjing"
-                android:inputType="number" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_caizhi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_caizhi" />
+                <EditText
+                    android:id="@+id/et_location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_location" />
 
-            <EditText
-                android:id="@+id/et_mixtype"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_hunjietype" />
+                <EditText
+                    android:id="@+id/et_wushuilaiyuan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_wushuilaiyuan" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/et_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_location" />
-
-            <EditText
-                android:id="@+id/et_wushuilaiyuan"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_wushuilaiyuan" />
 
             <EditText
                 android:id="@+id/et_liuliang"
@@ -101,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:hint="@string/hint_beizhu"
-                android:lines="5" />
+                android:lines="4" />
 
 
             <LinearLayout

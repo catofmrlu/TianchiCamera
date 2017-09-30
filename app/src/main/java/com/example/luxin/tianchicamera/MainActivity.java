@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,7 +21,21 @@ import com.example.luxin.tianchicamera.sqlite.SQLiteHandle;
 //
 //luxinxin
 //
+
+
 public class MainActivity extends AppCompatActivity {
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            // 注意activity的模式必须为默认，即为standard模式
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    };
 
     final static int REQUEST_CODE_IMAGE = 1;
     String picturePath;
@@ -121,40 +137,46 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //异步将信息插入数据库
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //将信息插入数据库
-                        SQLiteHandle handle = new SQLiteHandle(MainActivity.this);
-                        handle.insertItem(etRoad.getText().toString(),
-                                etNumber.getText().toString(),
-                                etGuanDuan.getText().toString(),
-                                etGuanJing.getText().toString(),
-                                etCaiZhi.getText().toString(),
-                                etType.getText().toString(),
-                                etLocation.getText().toString(),
-                                etSource.getText().toString(),
-                                etLiuLiang.getText().toString(),
-                                etBeiZhu.getText().toString());
 
-                        //截取路径字符串，取得图片名称
-                        int location = picturePath.lastIndexOf("/");
-                        String name = picturePath.substring(0, location);
+                SQLiteHandle handle = new SQLiteHandle(MainActivity.this);
 
-                        //创建修改提交对象
-                        ContentValues values = new ContentValues();
-                        values.put("MediaStore.Images.Media.DATA", name + etNumber.getText().toString() + ".jpg");
+                //判断要插入的项是否存在
+                if (handle.queraHasItems(etNumber.getText().toString())) {
 
-                        getContentResolver().update(uri, values, "MediaStore.Images.Media.DATA = " + "'" + picturePath + "'", null);
-                    }
-                }).start();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //将信息插入数据库
+                            SQLiteHandle handle = new SQLiteHandle(MainActivity.this);
+                            handle.insertItem(etRoad.getText().toString(),
+                                    etNumber.getText().toString(),
+                                    etGuanDuan.getText().toString(),
+                                    etGuanJing.getText().toString(),
+                                    etCaiZhi.getText().toString(),
+                                    etType.getText().toString(),
+                                    etLocation.getText().toString(),
+                                    etSource.getText().toString(),
+                                    etLiuLiang.getText().toString(),
+                                    etBeiZhu.getText().toString());
 
-                Toast.makeText(MainActivity.this, "信息提交成功", Toast.LENGTH_SHORT).show();
+                            //截取路径字符串，取得图片名称
+                            int location = picturePath.lastIndexOf("/");
+                            String name = picturePath.substring(0, location);
 
-                // 注意activity的模式必须为默认，即为standard模式
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                            //创建修改提交对象
+                            ContentValues values = new ContentValues();
+                            values.put("MediaStore.Images.Media.DATA", name + etNumber.getText().toString() + ".jpg");
+
+                            getContentResolver().update(uri, values, "MediaStore.Images.Media.DATA = " + "'" + picturePath + "'", null);
+
+                            //通知跳转
+                            handler.sendEmptyMessage(0);
+                        }
+                    }).start();
+
+                    Toast.makeText(MainActivity.this, "信息提交成功", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
